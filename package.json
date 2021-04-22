@@ -1,0 +1,21 @@
+{
+    "name": "js-plugin-notice",
+    "version": "1.0.0",
+    "scripts": {
+        "serve": "browser-sync start --server --files \"src/** , *.html\""
+    },
+    "main": "index.js",
+    "repository": "git@github.com:OUDUIDUI/js-plugin-notice.git",
+    "author": "oushihao <oushihao97@163.com>",
+    "license": "MIT",
+    "keywords": [
+        "alert",
+        "toast",
+        "notification",
+        "toast notification",
+        "javascript plugin"
+    ],
+    "dependencies": {
+        "browser-sync": "^2.26.14"
+    }
+}
