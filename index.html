@@ -5,8 +5,95 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./src/style.css">
+    <link rel="stylesheet" href="./src/notice.css">
+    <link rel="stylesheet"
+          href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
 </head>
 <body>
-    Hello World
+<div class="page">
+    <h1 class="text">Notice JavaScript Plugin</h1>
+    <a href="https://github.com/OUDUIDUI/js-plugin-notice">
+        <img src="./src/github.svg" alt="github" class="github">
+    </a>
+
+
+    <section>
+        <h2 class="text">Loading</h2>
+        <div class="list">
+            <div class="item">
+                <div class="item-header">
+                    <h3>Default</h3>
+                    <button onclick="showLoading()">Show</button>
+                </div>
+                <pre>
+<code>notice.showLoading();
+
+setTimeout(() => {
+    notice.hideLoading()
+},3000)</code></pre>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <h3>Set Type</h3>
+                    <button onclick="showLoading({type: 'ellipsis'})">Show</button>
+                </div>
+                <pre>
+<code>notice.showLoading({
+    type: 'ellipsis'  // circular or ellipsis
+});
+
+setTimeout(() => {
+    notice.hideLoading()
+},3000)</code></pre>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <h3>Set Text</h3>
+                    <button onclick="showLoading({title: 'Loading'})">Show</button>
+                </div>
+                <pre>
+<code>notice.showLoading({
+    title: 'Loading'
+});
+
+setTimeout(() => {
+    notice.hideLoading()
+},3000)</code></pre>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <h3>Set Color</h3>
+                    <button onclick="showLoading({color: '#333', backgroundColor: 'rgba(255,255,255,.6)'})">Show</button>
+                </div>
+                <pre>
+<code>notice.showLoading({
+    color: '#333',
+    backgroundColor: 'rgba(255,255,255,.6)'
+});
+
+setTimeout(() => {
+    notice.hideLoading()
+},3000)</code></pre>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.0-alpha0/highlight.min.js"></script>
+<script>
+    hljs.highlightAll();
+</script>
+
+<script src="./src/notice.js"></script>
+<script>
+    const notice = new Notice();
+</script>
+
+<script src="./src/main.js"></script>
 </body>
 </html>
