@@ -24,8 +24,27 @@ h1 {
 }
 
 .github {
-    width: 25px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.github img {
+    width: 25px;
+    margin-right: 10px;
+}
+
+.github div {
+    height: 24px;
+    font-size: 16px;
+    font-weight: bolder;
+    line-height: 1.5;
+}
+
+.github div:hover {
+    border-bottom: 2px solid #333;
 }
 
 section {

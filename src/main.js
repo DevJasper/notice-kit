@@ -1,8 +1,7 @@
-//
-// notice.showLoading({
-//     title: 'Loading'
-// });
-//
+const toGithub = () => {
+    window.open('https://github.com/OUDUIDUI/NoticeKit');
+}
+
 const showLoading = (options) => {
     notice.showLoading(options);
 
