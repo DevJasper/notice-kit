@@ -1,8 +1,8 @@
-
-notice.showLoading({
-    title: 'Loading'
-});
-
+//
+// notice.showLoading({
+//     title: 'Loading'
+// });
+//
 const showLoading = (options) => {
     notice.showLoading(options);
 

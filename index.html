@@ -36,12 +36,72 @@ setTimeout(() => {
 
             <div class="item">
                 <div class="item-header">
-                    <h3>Set Type</h3>
-                    <button onclick="showLoading({type: 'ellipsis'})">Show</button>
+                    <h3>Set Type (dots)</h3>
+                    <button onclick="showLoading({type: 'dots'})">Show</button>
                 </div>
                 <pre>
 <code>notice.showLoading({
-    type: 'ellipsis'  // circular or ellipsis
+    type: 'dots'  // default：'line'
+});
+
+setTimeout(() => {
+    notice.hideLoading()
+},3000)</code></pre>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <h3>Set Type (dots_zoom)</h3>
+                    <button onclick="showLoading({type: 'dots_zoom'})">Show</button>
+                </div>
+                <pre>
+<code>notice.showLoading({
+    type: 'dots_zoom'  // default：'line'
+});
+
+setTimeout(() => {
+    notice.hideLoading()
+},3000)</code></pre>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <h3>Set Type (dots_spin)</h3>
+                    <button onclick="showLoading({type: 'dots_spin'})">Show</button>
+                </div>
+                <pre>
+<code>notice.showLoading({
+    type: 'dots_spin'  // default：'line'
+});
+
+setTimeout(() => {
+    notice.hideLoading()
+},3000)</code></pre>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <h3>Set Type (cube_flip)</h3>
+                    <button onclick="showLoading({type: 'cube_flip'})">Show</button>
+                </div>
+                <pre>
+<code>notice.showLoading({
+    type: 'cube_flip'  // default：'line'
+});
+
+setTimeout(() => {
+    notice.hideLoading()
+},3000)</code></pre>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <h3>Set Type (cube_zoom)</h3>
+                    <button onclick="showLoading({type: 'cube_zoom'})">Show</button>
+                </div>
+                <pre>
+<code>notice.showLoading({
+    type: 'cube_zoom'  // default：'line'
 });
 
 setTimeout(() => {
@@ -66,11 +126,28 @@ setTimeout(() => {
 
             <div class="item">
                 <div class="item-header">
-                    <h3>Set Color</h3>
-                    <button onclick="showLoading({color: '#333', backgroundColor: 'rgba(255,255,255,.6)'})">Show</button>
+                    <h3>Set Font Size</h3>
+                    <button onclick="showLoading({title: 'Loading',fontSize: 20})">Show</button>
                 </div>
                 <pre>
 <code>notice.showLoading({
+    title: 'Loading',
+    fontSize: 20,
+});
+
+setTimeout(() => {
+    notice.hideLoading()
+},3000)</code></pre>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <h3>Set Color</h3>
+                    <button onclick="showLoading({title: 'Loading',color: '#333', backgroundColor: 'rgba(255,255,255,.6)'})">Show</button>
+                </div>
+                <pre>
+<code>notice.showLoading({
+    title: 'Loading',
     color: '#333',
     backgroundColor: 'rgba(255,255,255,.6)'
 });

@@ -29,19 +29,19 @@
     margin-left: 1px;
     letter-spacing: 1px;
     margin-bottom: 15px;
-    font-size: 16px;
     font-weight: 300;
 }
 
-.notice-loading-cube {
+/* cube_flip */
+.notice-loading-cube-flip {
     width: 40px;
     height: 40px;
     margin: 10px auto;
-    -webkit-animation: rotateplane 1.2s infinite ease-in-out;
-    animation: rotateplane 1.2s infinite ease-in-out;
+    -webkit-animation: notice-loading-cube-flip-rotate 1.2s infinite ease-in-out;
+    animation: notice-loading-cube-flip-rotate 1.2s infinite ease-in-out;
 }
 
-@-webkit-keyframes rotateplane {
+@-webkit-keyframes notice-loading-cube-flip-rotate {
     0% {
         -webkit-transform: perspective(120px)
     }
@@ -53,7 +53,7 @@
     }
 }
 
-@keyframes rotateplane {
+@keyframes notice-loading-cube-flip-rotate {
     0% {
         transform: perspective(120px) rotateX(0deg) rotateY(0deg);
         -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
@@ -68,14 +68,15 @@
     }
 }
 
-.notice-loading-bounce {
+/* dots_zoom */
+.notice-loading-dots-zoom {
     width: 40px;
     height: 40px;
     position: relative;
     margin: 10px auto;
 }
 
-.notice-loading-bounce-1, .notice-loading-bounce-2 {
+.notice-loading-dots-zoom1, .notice-loading-dots-zoom2 {
     width: 100%;
     height: 100%;
     border-radius: 50%;
@@ -84,30 +85,36 @@
     top: 0;
     left: 0;
 
-    -webkit-animation: bounce 2.0s infinite ease-in-out;
-    animation: bounce 2.0s infinite ease-in-out;
+    -webkit-animation: notice-loading-dots-zoom-bounce 2.0s infinite ease-in-out;
+    animation: notice-loading-dots-zoom-bounce 2.0s infinite ease-in-out;
 }
 
-.notice-loading-bounce-2 {
+.notice-loading-dots-zoom2 {
     -webkit-animation-delay: -1.0s;
     animation-delay: -1.0s;
 }
 
-@-webkit-keyframes bounce {
-    0%, 100% { -webkit-transform: scale(0.0) }
-    50% { -webkit-transform: scale(1.0) }
+@-webkit-keyframes notice-loading-dots-zoom-bounce {
+    0%, 100% {
+        -webkit-transform: scale(0.0)
+    }
+    50% {
+        -webkit-transform: scale(1.0)
+    }
 }
 
-@keyframes bounce {
+@keyframes notice-loading-dots-zoom-bounce {
     0%, 100% {
         transform: scale(0.0);
         -webkit-transform: scale(0.0);
-    } 50% {
-          transform: scale(1.0);
-          -webkit-transform: scale(1.0);
-      }
+    }
+    50% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
 }
 
+/* line */
 .notice-loading-line {
     margin: 10px auto;
     width: 50px;
@@ -121,8 +128,8 @@
     width: 6px;
     display: inline-block;
 
-    -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
-    animation: stretchdelay 1.2s infinite ease-in-out;
+    -webkit-animation: notice-loading-line-delay 1.2s infinite ease-in-out;
+    animation: notice-loading-line-delay 1.2s infinite ease-in-out;
 }
 
 .notice-loading-line .notice-loading-line-rect2 {
@@ -145,20 +152,209 @@
     animation-delay: -0.8s;
 }
 
-@-webkit-keyframes stretchdelay {
-    0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
-    20% { -webkit-transform: scaleY(1.0) }
+@-webkit-keyframes notice-loading-line-delay {
+    0%, 40%, 100% {
+        -webkit-transform: scaleY(0.4)
+    }
+    20% {
+        -webkit-transform: scaleY(1.0)
+    }
 }
 
-@keyframes stretchdelay {
+@keyframes notice-loading-line-delay {
     0%, 40%, 100% {
         transform: scaleY(0.4);
         -webkit-transform: scaleY(0.4);
-    }  20% {
-           transform: scaleY(1.0);
-           -webkit-transform: scaleY(1.0);
-       }
+    }
+    20% {
+        transform: scaleY(1.0);
+        -webkit-transform: scaleY(1.0);
+    }
 }
 
+/* dot_spin */
+.notice-loading-spin-dots {
+    margin: 20px auto;
+    width: 45px;
+    height: 45px;
+    position: relative;
+    text-align: center;
 
+    -webkit-animation: notice-loading-spin-dots-rotate 2.0s infinite linear;
+    animation: notice-loading-spin-dots-rotate 2.0s infinite linear;
+}
 
+.notice-loading-spin-dot1, .notice-loading-spin-dot2 {
+    width: 60%;
+    height: 60%;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    border-radius: 100%;
+
+    -webkit-animation: notice-loading-spin-dots-bounce 2.0s infinite ease-in-out;
+    animation: notice-loading-spin-dots-bounce 2.0s infinite ease-in-out;
+}
+
+.notice-loading-spin-dot2 {
+    top: auto;
+    bottom: 0;
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+}
+
+@-webkit-keyframes notice-loading-spin-dots-rotate {
+    100% {
+        -webkit-transform: rotate(360deg)
+    }
+}
+
+@keyframes notice-loading-spin-dots-rotate {
+    100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg)
+    }
+}
+
+@-webkit-keyframes notice-loading-spin-dots-bounce {
+    0%, 100% {
+        -webkit-transform: scale(0.0)
+    }
+    50% {
+        -webkit-transform: scale(1.0)
+    }
+}
+
+@keyframes notice-loading-spin-dots-bounce {
+    0%, 100% {
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+    }
+    50% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
+}
+
+/* cube_zoom */
+.notice-loading-cube-zoom {
+    width: 40px;
+    height: 40px;
+    margin: 10px auto;
+}
+
+.notice-loading-cube-zoom > div {
+    width: 33%;
+    height: 33%;
+    float: left;
+    -webkit-animation: notice-loading-cube-zoom-delay 1.3s infinite ease-in-out;
+    animation: notice-loading-cube-zoom-delay 1.3s infinite ease-in-out;
+}
+
+.notice-loading-cube-zoom-1 {
+    -webkit-animation-delay: 0.2s !important;
+    animation-delay: 0.2s !important;
+}
+
+.notice-loading-cube-zoom-2 {
+    -webkit-animation-delay: 0.3s !important;
+    animation-delay: 0.3s !important;
+}
+
+.notice-loading-cube-zoom-3 {
+    -webkit-animation-delay: 0.4s !important;
+    animation-delay: 0.4s !important;
+}
+
+.notice-loading-cube-zoom-4 {
+    -webkit-animation-delay: 0.1s !important;
+    animation-delay: 0.1s !important;
+}
+
+.notice-loading-cube-zoom-5 {
+    -webkit-animation-delay: 0.2s !important;
+    animation-delay: 0.2s !important;
+}
+
+.notice-loading-cube-zoom-6 {
+    -webkit-animation-delay: 0.3s !important;
+    animation-delay: 0.3s !important;
+}
+
+.notice-loading-cube-zoom-7 {
+    -webkit-animation-delay: 0s !important;
+    animation-delay: 0s !important;
+}
+
+.notice-loading-cube-zoom-8 {
+    -webkit-animation-delay: 0.1s !important;
+    animation-delay: 0.1s !important;
+}
+
+.notice-loading-cube-zoom-9 {
+    -webkit-animation-delay: 0.2s !important;
+    animation-delay: 0.2s !important;
+}
+
+@-webkit-keyframes notice-loading-cube-zoom-delay {
+    0%, 70%, 100% {
+        -webkit-transform: scale3D(1, 1, 1);
+        transform: scale3D(1, 1, 1);
+    }
+    35% {
+        -webkit-transform: scale3D(0, 0, 1);
+        transform: scale3D(0, 0, 1);
+    }
+}
+
+@keyframes notice-loading-cube-zoom-delay {
+    0%, 70%, 100% {
+        -webkit-transform: scale3D(1, 1, 1);
+        transform: scale3D(1, 1, 1);
+    }
+    35% {
+        -webkit-transform: scale3D(0, 0, 1);
+        transform: scale3D(0, 0, 1);
+    }
+}
+
+/* dots */
+.notice-loading-dots {
+    margin: 15px auto;
+    width: 65px;
+    text-align: center;
+}
+
+.notice-loading-dots > div {
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: notice-loading-dots-delay 1.4s infinite ease-in-out both;
+    animation: notice-loading-dots-delay 1.4s infinite ease-in-out both;
+}
+
+.notice-loading-dot1 {
+    -webkit-animation-delay: -0.32s !important;
+    animation-delay: -0.32s !important;
+}
+
+.notice-loading-dot2 {
+    -webkit-animation-delay: -0.16s !important;
+    animation-delay: -0.16s !important;
+}
+
+@-webkit-keyframes notice-loading-dots-delay {
+    0%, 80%, 100% { -webkit-transform: scale(0) }
+    40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes notice-loading-dots-delay {
+    0%, 80%, 100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    } 40% {
+          -webkit-transform: scale(1.0);
+          transform: scale(1.0);
+      }
+}
