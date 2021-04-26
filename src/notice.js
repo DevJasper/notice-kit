@@ -1,3 +1,5 @@
+import css from './notice.css'
+
 !function () {
     "use strict"
     class Notice {
