@@ -1,7 +1,8 @@
-import css from './notice.css'
+// import css from './notice.css'
 
 !function () {
     "use strict"
+
     class Notice {
         showLoading(options) {
             typeof options !== 'object' || options === null ? options = {} : '';
@@ -15,7 +16,7 @@ import css from './notice.css'
 
             // create Parent Element
             const container = document.createElement('div');
-            container.setAttribute('class', 'notice-loading notice-flex-center notice-fixed-page');
+            container.setAttribute('class', 'notice-loading notice-flex-center notice-fixed-all-page');
             container.setAttribute('id', 'notice-loading');
 
             // get Loading Element
@@ -23,7 +24,7 @@ import css from './notice.css'
 
 
             container.innerHTML = `
-                <div class="notice-mask notice-fixed-page" style="background-color: ${backgroundColor}"></div>
+                <div class="notice-mask notice-fixed-all-page" style="background-color: ${backgroundColor}"></div>
                 <div class="notice-flex-center notice-loading-main">
                 ${loadingEl}
                     ${title ? `<p style="color:${color};font-size: ${fontSize + 'px'};">${title}</p>` : ''}
@@ -34,19 +35,73 @@ import css from './notice.css'
 
         hideLoading() {
             const loadingEl = $('#notice-loading');
-            if(loadingEl){
+            if (loadingEl) {
                 $('body').removeChild(loadingEl)
+            }
+        }
+
+        showToast(options) {
+            typeof options !== 'object' || options === null ? options = {} : '';
+
+            // set Default Value
+            const text = options.text;
+            // if not text , cannot show toast
+            if(!text) return ;
+            const typeStyles = {
+                default: {icon: '', color: '#909399', backgroundColor: '#f4f4f5'},
+                success: {icon: '&#xe66b;', color: '#67c23a', backgroundColor: '#f0f9eb'},
+                error: {icon: '&#xe651;', color: '#e6a23c', backgroundColor: '#fdf6ec'},
+                info: {icon: '&#xe89e;', color: '#909399', backgroundColor: '#f4f4f5'},
+                warning: {icon: '&#xe65b;', color: '#f56c6c', backgroundColor: '#fef0f0'},
+            }
+            const type = options.type || 'default';
+            const typeStyle = typeStyles[type] || typeStyles['default'];
+            const autoClose = typeof options.autoClose === "boolean" ? options.autoClose : true;
+            typeStyle.showClose = options.showClose || false;
+            typeStyle.text = text;
+
+            const toastElementId = getElId('notice-toast');
+
+            // Determine if toast exists
+            if ($('#notice-toast')) {
+                // create Element
+                const main = document.createElement('div');
+                main.setAttribute('class', 'notice-toast-main');
+                main.setAttribute('id', toastElementId);
+                main.setAttribute('style', `background:${typeStyle.backgroundColor}`);
+                main.innerHTML = getToastEl(toastElementId,typeStyle);
+                $('#notice-toast').appendChild(main);
+            } else {
+                // create Parent Element
+                const container = document.createElement('div');
+                container.setAttribute('class', 'notice-toast');
+                container.setAttribute('id', 'notice-toast');
+                container.innerHTML =
+                    ` <div class="notice-toast-main" id="${toastElementId}" 
+                        style="background:${typeStyle.backgroundColor}">
+                    ${getToastEl(toastElementId,typeStyle)}
+                </div> `;
+                $('body').appendChild(container);
+            }
+
+            // show animation
+            setTimeout(() => $(`#${toastElementId}`).classList.add('notice-toast-main-active'));
+
+            // Turn off regularly
+            if(autoClose){
+                setTimeout(() => {
+                    const el = $(`#${toastElementId}`);
+                    if(el){
+                        el.classList.remove('notice-toast-main-active');
+                        setTimeout(() => el.remove(), 500);
+                    }
+                }, 4000);
             }
         }
     }
 
     function $(el, con) {
         return typeof el === 'string' ? (con || document).querySelector(el) : el || null;
-    }
-
-
-    function $$(el, con) {
-        return typeof el === 'string' ? (con || document).querySelectorAll(el) : el || null;
     }
 
     function getLoadingEl(type, color) {
@@ -96,6 +151,26 @@ import css from './notice.css'
                     </div>`
                 break;
         }
+    }
+
+    function getToastEl(id, {color,icon,showClose,text}) {
+        return ` <div class="notice-toast-container">
+                    ${icon ? `<i class="notice-iconfont notice-toast-icon" style="color: ${color}">${icon}</i>` : ''}
+                    <p class="notice-toast-text" style="color: ${color}; max-width: ${showClose ? 'calc(80vw - 125px)' : 'calc(80vw - 95px)'};">${text}</p> 
+                </div>
+                ${  showClose ?
+                    `<i class="notice-iconfont notice-close-icon"
+                       onclick="
+                            document.getElementById('${id}').classList.remove('notice-toast-main-active');
+                            setTimeout(() => document.getElementById('${id}').remove(), 500);">
+                        &#xe73e;
+                    </i>`  : ''
+                }`
+    }
+
+    // get only id
+    function getElId(text) {
+        return text + '-' + Number(Math.random().toString().substr(3, 4) + Date.now()).toString(36);
     }
 
     window.Notice = Notice;

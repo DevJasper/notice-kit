@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NoticeKit | A lightweight small notice widget</title>
     <link rel="stylesheet" href="./src/style.css">
-<!--    <link rel="stylesheet" href="./src/notice.css">-->
-    <link rel="stylesheet" href="./dist/notice.min.css">
+    <link rel="stylesheet" href="./src/notice.css">
+<!--    <link rel="stylesheet" href="./dist/notice.min.css">-->
     <link rel="stylesheet"
           href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
 </head>
@@ -163,6 +163,96 @@ setTimeout(() => {
         </div>
     </section>
 
+    <section>
+        <h2 class="text">Toast</h2>
+        <div class="list">
+            <div class="item">
+                <div class="item-header">
+                    <h3>Default</h3>
+                    <button onclick="showMessage({text: 'This is a message.'})">Show</button>
+                </div>
+                <pre>
+<code>notice.showToast({
+    text: 'This is a message.'  // It must be filled in, otherwise it will not be displayed
+});</code></pre>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <h3>Set Type (success)</h3>
+                    <button onclick="showMessage({text: 'This is a success message.',type: 'success'})">Show</button>
+                </div>
+                <pre>
+<code>notice.showToast({
+    text: 'This is a success message.',
+    type: 'success'
+});</code></pre>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <h3>Set Type (error)</h3>
+                    <button onclick="showMessage({text: 'This is a error message.',type: 'error'})">Show</button>
+                </div>
+                <pre>
+<code>notice.showToast({
+    text: 'This is a error message.',
+    type: 'error'
+});</code></pre>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <h3>Set Type (info)</h3>
+                    <button onclick="showMessage({text: 'This is a info message.',type: 'info'})">Show</button>
+                </div>
+                <pre>
+<code>notice.showToast({
+    text: 'This is a info message.',
+    type: 'info'
+});</code></pre>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <h3>Set Type (warning)</h3>
+                    <button onclick="showMessage({text: 'This is a warning message.',type: 'warning'})">Show</button>
+                </div>
+                <pre>
+<code>notice.showToast({
+    text: 'This is a warning message.',
+    type: 'warning'
+});</code></pre>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <h3>Set ShowClose</h3>
+                    <button onclick="showMessage({text: 'This is a message.',type: 'success',showClose: true})">Show</button>
+                </div>
+                <pre>
+<code>notice.showToast({
+    text: 'This is a message.',
+    type: 'success',
+    showClose: true,   // default false
+});</code></pre>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <h3>Set AutoClose</h3>
+                    <button onclick="showMessage({text: 'This is a message.',type: 'success',showClose: true, autoClose: false})">Show</button>
+                </div>
+                <pre>
+<code>notice.showToast({
+    text: 'This is a message.',
+    type: 'success',
+    showClose: true,
+    autoClose: false,   // default true
+});</code></pre>
+            </div>
+        </div>
+    </section>
 </div>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.0-alpha0/highlight.min.js"></script>
@@ -170,8 +260,8 @@ setTimeout(() => {
     hljs.highlightAll();
 </script>
 
-<!--<script src="./src/notice.js"></script>-->
-<script src="./dist/notice.min.js"></script>
+<script src="./src/notice.js"></script>
+<!--<script src="./dist/notice.min.js"></script>-->
 <script>
     const notice = new Notice();
 </script>

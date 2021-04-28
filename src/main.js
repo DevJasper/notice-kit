@@ -9,3 +9,7 @@ const showLoading = (options) => {
         notice.hideLoading()
     },3000)
 }
+
+const showMessage = (options) => {
+    notice.showToast(options);
+}
