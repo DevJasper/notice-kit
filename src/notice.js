@@ -43,24 +43,41 @@
         showToast(options) {
             typeof options !== 'object' || options === null ? options = {} : '';
 
-            // set Default Value
             const text = options.text;
             // if not text , cannot show toast
             if(!text) return ;
+
+            // get screen width
+            const isPhone = screen.width < 576;
+
+            // set Default Value
             const typeStyles = {
-                default: {icon: '', color: '#909399', backgroundColor: '#f4f4f5'},
-                success: {icon: '&#xe66b;', color: '#67c23a', backgroundColor: '#f0f9eb'},
-                error: {icon: '&#xe651;', color: '#e6a23c', backgroundColor: '#fdf6ec'},
-                info: {icon: '&#xe89e;', color: '#909399', backgroundColor: '#f4f4f5'},
-                warning: {icon: '&#xe65b;', color: '#f56c6c', backgroundColor: '#fef0f0'},
+                default: {icon: '', phoneIcon: '', color: '#909399', backgroundColor: '#f4f4f5'},
+                success: {icon: '&#xe66b;', phoneIcon: '&#xe600;', color: '#67c23a', backgroundColor: '#f0f9eb'},
+                error: {icon: '&#xe651;', phoneIcon: '&#xe640;', color: '#e6a23c', backgroundColor: '#fdf6ec'},
+                info: {icon: '&#xe89e;', phoneIcon: '&#xea11;', color: '#909399', backgroundColor: '#f4f4f5'},
+                warning: {icon: '&#xe65b;', phoneIcon: '&#xea0c;', color: '#f56c6c', backgroundColor: '#fef0f0'},
             }
             const type = options.type || 'default';
             const typeStyle = typeStyles[type] || typeStyles['default'];
-            const autoClose = typeof options.autoClose === "boolean" ? options.autoClose : true;
+            isPhone ? typeStyle.icon = typeStyle.phoneIcon : '';
+
+            let autoClose = typeof options.autoClose === "boolean" ? options.autoClose : true;
             typeStyle.showClose = options.showClose || false;
             typeStyle.text = text;
 
+
             const toastElementId = getElId('notice-toast');
+
+            // if isPhone
+            if(isPhone) {
+                typeStyle.icon = typeStyle.phoneIcon;
+                autoClose = true;
+
+                if($('#notice-toast')){
+                    $('#notice-toast').remove();
+                }
+            }
 
             // Determine if toast exists
             if ($('#notice-toast')) {
