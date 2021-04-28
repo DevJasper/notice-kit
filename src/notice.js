@@ -1,4 +1,4 @@
-// import css from './notice.css'
+import css from './notice.css'
 
 !function () {
     "use strict"
@@ -8,7 +8,7 @@
             typeof options !== 'object' || options === null ? options = {} : '';
 
             // set Default Value
-            const type = options.type || 'dots',
+            const type = options.type || 'line',
                 color = options.color || '#ffffff',
                 backgroundColor = options.backgroundColor || 'rgba(0,0,0,.6)',
                 title = options.title || '',

@@ -14,6 +14,7 @@ module.exports = {
         minimize: true,
         minimizer: [
             new CssMinimizerPlugin(),
+            '...'
         ],
     },
     module: {
