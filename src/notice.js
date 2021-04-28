@@ -1,4 +1,4 @@
-import css from './notice.css'
+// import css from './notice.css'
 
 !function () {
     "use strict"
@@ -86,7 +86,7 @@ import css from './notice.css'
                 main.setAttribute('class', 'notice-toast-main');
                 main.setAttribute('id', toastElementId);
                 main.setAttribute('style', `background:${typeStyle.backgroundColor}`);
-                main.innerHTML = getToastEl(toastElementId,typeStyle);
+                main.innerHTML = getToastEl(toastElementId,typeStyle,isPhone);
                 $('#notice-toast').appendChild(main);
             } else {
                 // create Parent Element
@@ -96,7 +96,7 @@ import css from './notice.css'
                 container.innerHTML =
                     ` <div class="notice-toast-main" id="${toastElementId}" 
                         style="background:${typeStyle.backgroundColor}">
-                    ${getToastEl(toastElementId,typeStyle)}
+                    ${getToastEl(toastElementId,typeStyle,isPhone)}
                 </div> `;
                 $('body').appendChild(container);
             }
@@ -170,10 +170,10 @@ import css from './notice.css'
         }
     }
 
-    function getToastEl(id, {color,icon,showClose,text}) {
+    function getToastEl(id, {color,icon,showClose,text},isPhone) {
         return ` <div class="notice-toast-container">
                     ${icon ? `<i class="notice-iconfont notice-toast-icon" style="color: ${color}">${icon}</i>` : ''}
-                    <p class="notice-toast-text" style="color: ${color}; max-width: ${showClose ? 'calc(80vw - 125px)' : 'calc(80vw - 95px)'};">${text}</p> 
+                    <p class="notice-toast-text ${isPhone && !icon  ? 'notice-toast-truncate-second' : ''}" style="color: ${color}; max-width: ${showClose ? 'calc(80vw - 125px)' : 'calc(80vw - 95px)'};">${text}</p> 
                 </div>
                 ${  showClose ?
                     `<i class="notice-iconfont notice-close-icon"
