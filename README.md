@@ -62,7 +62,7 @@ The options for loading. Check out the available options.
 |      title      | `string` | `false`  |         -          |             loading text             |                              -                               |
 |    fontSize     | `number` | `false`  |         16         |      font size of loading text       |                              -                               |
 
-> Preview oher style types of loading animation by [demo](http://ouduidui.cn/NoticeKit/).
+> Preview other style types of loading animation by [demo](http://ouduidui.cn/NoticeKit/).
 
 #### Examples:
 
@@ -107,7 +107,7 @@ The options for showing toast. Check out the available options.
 | showClose | `string` | `false`  |   `false`   |                Show close button                |                        -                         |
 
 
-> Preview oher style types of loading animation by [demo](http://ouduidui.cn/NoticeKit/).
+> Preview other style types of loading animation by [demo](http://ouduidui.cn/NoticeKit/).
 
 ## License
 
